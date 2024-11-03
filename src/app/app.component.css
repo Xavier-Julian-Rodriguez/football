@@ -1,0 +1,32 @@
+.main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.content {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  border: solid 1px black;
+  justify-content: center;
+}
+.left-side {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: left;
+  padding: 2%;
+}
+.divider {
+  width: 1%;
+}
+.right-side {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: left;
+  padding: 2%;
+}
