@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+import { Teams } from '../models/teams.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class TeamService {
 
   constructor(private http: HttpClient) {}
 
-  getTeams(): Observable<any> {
+  getTeams(): Observable<Teams[]> {
     const options = {
       method: 'GET',
       headers: {
@@ -21,6 +22,6 @@ export class TeamService {
         'x-rapidapi-host': this.host,
       },
     };
-    return this.http.get<any>(`${this.apiUrl}/nfl-team-list`, options);
+    return this.http.get<{teams: Teams[]}>(`${this.apiUrl}/nfl-team-list`, options).pipe(map(response => response.teams));
   }
 }

@@ -1,1 +1,11 @@
 <p style="color: black; font-size: 3rem">team works!</p>
+<div class="container">
+    <ul *ngIf="teams.length > 0" class="teamCards">
+      <li *ngFor="let team of teams" class="team-card">
+        <p>{{ team.id }}</p>
+        <p>{{ team.displayName }}</p>
+        <p>{{ team.location }}</p>
+      </li>
+    </ul>
+</div>
+<p *ngIf="teams.length === 0">No teams available.</p>
